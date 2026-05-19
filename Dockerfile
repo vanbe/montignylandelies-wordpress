@@ -26,7 +26,3 @@ RUN apk add --no-cache \
     && pecl install imagick \
     && docker-php-ext-enable imagick \
     && apk del .pecl-build-deps
-
-# OPcache (déjà chargé, on ajuste juste les valeurs)
-RUN echo "opcache.enable=1\nopcache.memory_consumption=128\nopcache.max_accelerated_files=10000\nopcache.revalidate_freq=2" \
-    > /usr/local/etc/php/conf.d/opcache.ini
